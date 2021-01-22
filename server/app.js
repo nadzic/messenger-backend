@@ -10,13 +10,13 @@ io.on('connect', function(socket) {
   ]
   ));
 
-	setInterval(function(){
+	setInterval(function() {
     socket.emit('chat message', JSON.stringify(
       { text: "vsakih 5s sent", incoming: true, name: "Some test user", timestamp: Date.now() },
     ));
   }, 5000);
   
-  socket.on('chat message',(msg)=>{
+  socket.on('chat message',(msg) => {
     socket.emit('chat message', JSON.stringify(msg));
   });
   
